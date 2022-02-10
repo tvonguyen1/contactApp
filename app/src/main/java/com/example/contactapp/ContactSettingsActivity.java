@@ -20,9 +20,10 @@ public class ContactSettingsActivity extends AppCompatActivity {
         initListButton();
         initMapButton();
         initSettingButton();
+        initSettings();
         initSortByClick();
         initSortOrderClick();
-        initSettings();
+
     }
     private void initListButton() {
         ImageButton ibList = findViewById(R.id.contactList);
@@ -75,7 +76,7 @@ public class ContactSettingsActivity extends AppCompatActivity {
 
     private void initSettings() {
         String sortBy = getSharedPreferences("MyContactListPreferences",
-                Context.MODE_PRIVATE).getString("Sortfield","contactname");
+                Context.MODE_PRIVATE).getString("sortfield","contactname");
         String sortOrder = getSharedPreferences("MyContactListPreferences",
                 Context.MODE_PRIVATE).getString("sortorder","ASC");
         RadioButton rbName = findViewById(R.id.radioName);
@@ -108,18 +109,18 @@ public class ContactSettingsActivity extends AppCompatActivity {
                 RadioButton rbName = findViewById(R.id.radioName);
                 RadioButton rbCity = findViewById(R.id.radioCity);
                 if (rbName.isChecked()) {
-                    getSharedPreferences("MyContactListPreference",
+                    getSharedPreferences("MyContactListPreferences",
                             Context.MODE_PRIVATE).edit().
                             putString("sortfield","contactname").apply();
 
                 }
                 else if (rbCity.isChecked()) {
-                    getSharedPreferences("MyContactListPreference",
+                    getSharedPreferences("MyContactListPreferences",
                             Context.MODE_PRIVATE).edit().
                             putString("sortfield","city").apply();
                 }
                 else {
-                    getSharedPreferences("MyContactListPreference",
+                    getSharedPreferences("MyContactListPreferences",
                             Context.MODE_PRIVATE).edit().
                             putString("sortfield","birthday").apply();
                 }
@@ -135,11 +136,11 @@ public class ContactSettingsActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 RadioButton rbAscending = findViewById(R.id.radioAscending);
                 if (rbAscending.isChecked()) {
-                    getSharedPreferences("MyContactListPreference",
+                    getSharedPreferences("MyContactListPreferences",
                             Context.MODE_PRIVATE).edit().
-                            putString("sortfield", "contactname").apply();
+                            putString("sortorder", "ASC").apply();
                 } else {
-                    getSharedPreferences("MyContactListPreference",
+                    getSharedPreferences("MyContactListPreferences",
                             Context.MODE_PRIVATE).edit().
                             putString("sortorder", "DESC").apply();
                 }
