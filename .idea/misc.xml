@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Shah Mirza/StudioProjects/contactApp/app/src/main/res/layout/activity_contact_list.xml" value="0.24909420289855072" />
+        <entry key="..\:/Users/Shah Mirza/StudioProjects/contactApp/app/src/main/res/layout/activity_contact_map.xml" value="0.25" />
+        <entry key="..\:/Users/Shah Mirza/StudioProjects/contactApp/app/src/main/res/layout/activity_main.xml" value="0.24909420289855072" />
+        <entry key="..\:/Users/Shah Mirza/StudioProjects/contactApp/app/src/main/res/layout/activity_maps.xml" value="0.24909420289855072" />
         <entry key="..\:/Users/nhatt/AndroidStudioProjects/contactApp - Copy/app/src/main/res/layout/activity_contact_map.xml" value="0.1" />
         <entry key="..\:/Users/nhatt/AndroidStudioProjects/contactApp/app/src/main/res/drawable/contactlist_launch_icon_background.xml" value="0.1" />
         <entry key="..\:/Users/nhatt/AndroidStudioProjects/contactApp/app/src/main/res/layout/activity_contact_list.xml" value="0.1894273127753304" />
