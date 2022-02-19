@@ -5,7 +5,11 @@ import android.content.Context;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +44,12 @@ public class ContactDataSource {
             initialValues.put("cellnumber", c.getCellNumber());
             initialValues.put("email", c.getEMail());
             initialValues.put("birthday",String.valueOf(c.getBirthday().getTimeInMillis()));
+            if (c.getPicture() != null) {
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                c.getPicture().compress(Bitmap.CompressFormat.PNG, 100, baos);
+                byte[] photo = baos.toByteArray();
+                initialValues.put("contactphoto", photo);
+            }
 
             didSucceed = database.insert("contact", null, initialValues) > 0;
         }
@@ -65,6 +75,12 @@ public class ContactDataSource {
             updateValues.put("email", c.getEMail());
             updateValues.put("birthday",
                     String.valueOf(c.getBirthday().getTimeInMillis()));
+            if (c.getPicture() != null) {
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                c.getPicture().compress(Bitmap.CompressFormat.PNG, 100, baos);
+                byte[] photo = baos.toByteArray();
+                updateValues.put("contactphoto", photo);
+            }
 
             didSucceed = database.update("contact", updateValues, "_id=" + rowId, null) > 0;
         }
@@ -161,6 +177,13 @@ public class ContactDataSource {
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(Long.valueOf(cursor.getString(9)));
             contact.setBirthday(calendar);
+            byte[] photo = cursor.getBlob(10);
+            if (photo != null) {
+                ByteArrayInputStream imageStream = new ByteArrayInputStream(photo);
+                Bitmap thePicture= BitmapFactory.decodeStream(imageStream);
+                contact.setPicture(thePicture);
+            }
+
 
             cursor.close();
         }

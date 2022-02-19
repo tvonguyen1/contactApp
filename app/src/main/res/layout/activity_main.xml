@@ -87,6 +87,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -111,6 +112,7 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageContact"
                 app:layout_constraintTop_toBottomOf="@+id/textContact"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -157,8 +159,8 @@
                 android:id="@+id/editState"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
                 android:ems="2"
                 android:hint="State"
                 android:imeOptions="actionNext"
@@ -173,14 +175,14 @@
                 android:id="@+id/editZipcode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
                 android:ems="5"
                 android:hint="Zipcode"
+                android:imeOptions="actionNext"
                 android:inputType="number"
                 android:maxLength="5"
                 android:nextFocusDown="@+id/editHome"
-                android:imeOptions="actionNext"
                 app:layout_constraintStart_toEndOf="@+id/editState"
                 app:layout_constraintTop_toBottomOf="@+id/editAddress"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -193,7 +195,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Home Phone:"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editCity"/>
+                app:layout_constraintTop_toBottomOf="@+id/editCity" />
 
             <EditText
                 android:id="@+id/editHome"
@@ -217,7 +219,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Cell Phone:"
                 app:layout_constraintStart_toEndOf="@+id/editHome"
-                app:layout_constraintTop_toBottomOf="@+id/editCity"/>
+                app:layout_constraintTop_toBottomOf="@+id/editCity" />
 
             <EditText
                 android:id="@+id/editCell"
@@ -241,7 +243,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Email Address:"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editHome"/>
+                app:layout_constraintTop_toBottomOf="@+id/editHome" />
 
             <EditText
                 android:id="@+id/editEmail"
@@ -265,7 +267,7 @@
                 android:layout_marginTop="24dp"
                 android:text="Birthday:"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editEmail"/>
+                app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
             <TextView
                 android:id="@+id/textBirthday"
@@ -275,23 +277,24 @@
                 android:layout_marginTop="24dp"
                 android:text="01/01/1970"
                 app:layout_constraintStart_toEndOf="@+id/textBday"
-                app:layout_constraintTop_toBottomOf="@+id/editEmail"/>
+                app:layout_constraintTop_toBottomOf="@+id/editEmail" />
 
             <Button
                 android:id="@+id/btnBirthday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:text="change"
-                app:layout_constraintBaseline_toBaselineOf="@id/textBirthday" />
-
-
-
-
-
-
-
-
+                app:layout_constraintBaseline_toBaselineOf="@id/textBirthday"
+                app:layout_constraintEnd_toEndOf="parent" />
+            <ImageButton android:id="@+id/imageContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textContact"
+                app:srcCompat="@drawable/photoicon"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
