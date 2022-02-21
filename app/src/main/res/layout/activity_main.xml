@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:ems="14"
+                android:ems="10"
                 android:hint="Name"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
@@ -285,7 +285,9 @@
                 android:layout_height="wrap_content"
                 android:text="change"
                 app:layout_constraintBaseline_toBaselineOf="@id/textBirthday"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"/>
+
             <ImageButton android:id="@+id/imageContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
